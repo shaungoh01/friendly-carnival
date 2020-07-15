@@ -20,7 +20,7 @@
                     <hr>
                     <div class="row">
                         <div class="col-6">
-                            <h4>Author: {{$article->creator->name}}</h4>
+                            <h4>Author: {{$article->creator->name ?? "Deleted User"}}</h4>
                         </div>
                         <div class="col-6">
                             @if(Auth::check() && !$article->users->contains(Auth::id()))
@@ -38,7 +38,7 @@
             <h4 class="mt-4">Comments : </h4>
             @foreach($article->comments as $comment)
             <div class="shadow p-3 mb-5 bg-white ">
-                <h5>{{$comment->user->name}} : </h5>
+                <h5>{{$comment->user->name ?? "Deleted User"}} : </h5>
                 <p>{!!nl2br($comment->comment)!!}</p>
             </div>
             @endforeach

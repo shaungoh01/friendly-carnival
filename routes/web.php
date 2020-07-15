@@ -25,3 +25,4 @@ Route::resource("/articles","ArticleController");
 Route::post('/articles/{article}/request_collab',"ArticleController@requestCollab");
 Route::post('/articles/{article}/approve_collab',"ArticleController@approveCollab");
 Route::post('/comments',"CommentController@store");
+Route::resource("/users","UserController");
